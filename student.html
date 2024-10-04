@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Complaint</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+
+        .header {
+            background-color: #FF6600; /* Same orange color as original */
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center; /* Center vertically */
+            justify-content: space-between;
+        }
+
+        .header .logo {
+            width: 50px; /* Corrected size */
+            height: 50px;
+            margin-right: 10px;
+        }
+
+        .header h1 {
+            font-size: 36px;
+            margin: 0;
+        }
+
+        .logout {
+            color: white;
+            font-size: 18px;
+        }
+
+        .logout a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .title {
+            text-align: center;
+            margin: 20px 0;
+            font-size: 28px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-size: 20px;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        input[type="text"], textarea {
+            width: 100%;
+            padding: 10px;
+            font-size: 18px;
+            border: 2px solid black;
+        }
+
+        textarea {
+            height: 80px;
+            resize: none;
+        }
+
+        .form-section {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 20px;
+            align-items: center;
+            margin: 20px; /* Margin for spacing */
+        }
+
+        .file-upload {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border: 2px dashed #ccc;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .file-upload input {
+            display: none;
+        }
+
+        .file-upload label {
+            font-size: 18px;
+            color: #333;
+            cursor: pointer;
+        }
+
+        .submit-btn {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .submit-btn input[type="submit"] {
+            background-color: #FF6600DC; /* Same orange background */
+            color: white;
+            font-size: 20px;
+            padding: 10px 40px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .submit-btn input[type="submit"]:hover {
+            background-color: #e55d00; /* Darker orange on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div style="display: flex; align-items: center;">
+            <img src="https://s3-alpha-sig.figma.com/img/ea78/32df/18593a01185ebb9bff9cea97e4c60eac?Expires=1728864000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=bEZzU1iymV4GH1Ytg1ZBhobsWrr0c2rLsctVNotEhapFLvXdncPmaIpH1e3zd4X-5MKnOLWBryJwHufA98-vhaQ5L93cUhJHatZtkCRVBTkmdY2Q6VOCqIH8qLHDYOOJqpxhNlw9KrKEEw73W35Qk9FaSj3t1lyg3C9VO0dGGejIwQSG--GSJnsoC5q83lbNrZn2d5H4ehnGpGe~6rydSEBgmSFjyLGk0-ntVinClw7hYgU8iVC3ootZ6Avr0eKT-r3kK2f8jLh-jQgUukFOIwFCy4Zu3LMPNhYLYUgSrKTWtVoe1yymD6borKsSHMi9W4fHRK3rKZBYvt7kaRHjPw__" alt="VITSPECT Logo" class="logo">
+            <h1>VITSPECT</h1>
+        </div>
+        <div class="logout">
+            <a href="#">Logout</a>
+        </div>
+    </div>
+
+    <div class="title">Register the Complaint</div>
+
+    <form action="/upload" method="POST" enctype="multipart/form-data">
+        <div class="form-section">
+            <div>
+                <div class="form-group">
+                    <label for="location">Location</label>
+                    <input type="text" id="location" name="location" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <textarea id="description" name="description" required></textarea>
+                </div>
+            </div>
+
+            <div class="file-upload">
+                <label for="image-upload">Upload the image</label>
+                <input type="file" id="image-upload" name="image" accept="image/*" required>
+                <label for="image-upload">Choose Image</label>
+            </div>
+        </div>
+
+        <div class="submit-btn">
+            <input type="submit" value="Submit">
+        </div>
+    </form>
+</body>
+</html>

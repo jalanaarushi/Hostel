@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VITSPECT - Login</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        .header {
+            background-color: #FF6600; /* Same orange color as original */
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center; /* Center vertically */
+            justify-content: space-between;
+            border-bottom: 5px solid black; /* Consistent with pg1 and pg3 */
+        }
+
+        .header .logo {
+            width: 50px; /* Corrected size */
+            height: 50px;
+            margin-right: 10px;
+        }
+
+        .header h1 {
+            font-size: 36px;
+            margin: 0;
+        }
+
+        .content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 20px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .content h2 {
+            margin-bottom: 20px;
+            font-size: 28px;
+            color: #333;
+        }
+
+        .login-form {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            max-width: 300px; /* Ensure form doesn't get too wide */
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        input[type="text"], input[type="password"] {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 100%;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+
+        input[type="text"]:focus, input[type="password"]:focus {
+            border-color: #FF6600; /* Highlight on focus */
+            outline: none;
+        }
+
+        .submit-button {
+            padding: 10px;
+            background-color: #FF6600DC; /* Orange background with slight transparency */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .submit-button:hover {
+            background-color: #FF6600; /* Darker orange on hover */
+        }
+
+        .forgot-password {
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        .forgot-password a {
+            color: #FF6600;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s, text-decoration 0.3s;
+        }
+
+        .forgot-password a:hover {
+            color: #e55d00;
+            text-decoration: underline;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 28px;
+            }
+
+            .content {
+                margin: 10px;
+                padding: 15px;
+            }
+
+            .login-form {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div style="display: flex; align-items: center;">
+            <img src="https://s3-alpha-sig.figma.com/img/ea78/32df/18593a01185ebb9bff9cea97e4c60eac?Expires=1728864000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=bEZzU1iymV4GH1Ytg1ZBhobsWrr0c2rLsctVNotEhapFLvXdncPmaIpH1e3zd4X-5MKnOLWBryJwHufA98-vhaQ5L93cUhJHatZtkCRVBTkmdY2Q6VOCqIH8qLHDYOOJqpxhNlw9KrKEEw73W35Qk9FaSj3t1lyg3C9VO0dGGejIwQSG--GSJnsoC5q83lbNrZn2d5H4ehnGpGe~6rydSEBgmSFjyLGk0-ntVinClw7hYgU8iVC3ootZ6Avr0eKT-r3kK2f8jLh-jQgUukFOIwFCy4Zu3LMPNhYLYUgSrKTWtVoe1yymD6borKsSHMi9W4fHRK3rKZBYvt7kaRHjPw__" alt="VITSPECT Logo" class="logo">
+            <h1>VITSPECT</h1>
+        </div>
+        <!-- You can add navigation or other elements here if needed -->
+    </div>
+
+    <div class="content">
+        <h2>Login</h2>
+        <form class="login-form" action="login_process.php" method="post">
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required placeholder="Enter your username">
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required placeholder="Enter your password">
+            </div>
+            <button type="submit" class="submit-button">Login</button>
+        </form>
+        <div class="forgot-password">
+            <a href="forgot_password.html">Forgot Password?</a> <!-- Link to Forgot Password Page -->
+        </div>
+    </div>
+</body>
+</html>
