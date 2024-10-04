@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VITSPECT</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: white;
+        }
+
+        .header {
+            background-color: #FF6600;
+            color: white;
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            /* border-bottom: 5px solid black; */
+        }
+
+        .logo {
+            width: 50px;
+            height: 50px;
+            margin-right: 20px;
+        }
+
+        h1 {
+            font-size: 36px;
+            margin: 0;
+        }
+
+        .content {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            padding: 40px;
+            justify-items: center;
+        }
+
+        .user-card {
+            text-align: center;
+        }
+
+        .user-card a {
+            text-decoration: none;
+            color: black;
+        }
+
+        .user-icon {
+            width: 100px;
+            height: 100px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 18px;
+            margin: 0;
+        }
+
+        .spotlight {
+            padding: 20px;
+            background-color: white;
+            /* border-top: 5px ; */
+        }
+
+        .spotlight h2 {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .spotlight ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .spotlight li {
+            font-size: 18px;
+            margin: 5px 0;
+            position: relative;
+        }
+
+        .spotlight li::before {
+            content: "➤";
+            color: red;
+            position: absolute;
+            left: -20px;
+            font-size: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <img src="https://s3-alpha-sig.figma.com/img/ea78/32df/18593a01185ebb9bff9cea97e4c60eac?Expires=1728864000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=bEZzU1iymV4GH1Ytg1ZBhobsWrr0c2rLsctVNotEhapFLvXdncPmaIpH1e3zd4X-5MKnOLWBryJwHufA98-vhaQ5L93cUhJHatZtkCRVBTkmdY2Q6VOCqIH8qLHDYOOJqpxhNlw9KrKEEw73W35Qk9FaSj3t1lyg3C9VO0dGGejIwQSG--GSJnsoC5q83lbNrZn2d5H4ehnGpGe~6rydSEBgmSFjyLGk0-ntVinClw7hYgU8iVC3ootZ6Avr0eKT-r3kK2f8jLh-jQgUukFOIwFCy4Zu3LMPNhYLYUgSrKTWtVoe1yymD6borKsSHMi9W4fHRK3rKZBYvt7kaRHjPw__" alt="VITSPECT Logo" style="width: 50px; 
+            height: 50px;">
+        <h1>VITSPECT</h1>
+    </div>
+
+    <div class="content">
+        <div class="user-card">
+            <a href="login.html">
+
+                <img src="https://s3-alpha-sig.figma.com/img/7650/cfd0/b50dd0529e2c7dc704f8fba79db389fb?Expires=1728864000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=TP7NGQETt9RJ9m5AI~Ijrlwzr~MiMqnI-2tys55kMjNUODONuGR11xest3BPvfYBJpnkDXvzlkVnH2xdcVKvkJ5bcbNK0JkWH93RTUYqEQGonK~B0fPVJOQdksMoRAa6nxUM08XYAohQFdx8-q-8BqqTz7jSbSYc6y0MSb3129aEhh8WOuZX~16fi-wpkvoiwYrM1SlF5~COFOZCeK2mFB3LsqFndicb9if017CmIcdIwAKs7IDtXq7~GC5KuIhOlTgfiQ7wpr9Yr0dbOuJ2cSoFGo7SY5T5GRzlsn553Dw-6BV-md7rF~nlLLrZ9dKtqZd74HELTecOQBGiY0kuJA__" alt=" " style="width: 100px; 
+            height: 100px;">
+                <p>Students</p>
+            </a>
+        </div>
+        <div class="user-card">
+            <a href="login.html">
+                <img src="https://s3-alpha-sig.figma.com/img/3276/ae28/e0ef2e03e932715367089ae176eb2ae0?Expires=1728864000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=FhCNi92Weq7c6YOPLUcGdO4rdhNJLeFsy4FoS6DvNDhcGM-JYbfqRqlYpSp3nkpFjOF2Ql6m79-wZWqyIahRDobDrApUf4Ax4INgcTotkWTlmUPRjIZK4Ie6~2Bj1Jh6NFozjYUHQpT9thWmDOnkzwVrDm5AnQHMsCVHLdYpHyBm3olTEuA14PvYiqVIRrp4b1VgyroV9ES2pidlG0CeEUi2GSTXU202~cYltaJMvJmWbYbXN-MuRF3a2viFpC1KwemBWz35iWZLz9eCPysF~RY1lMvPNLjxxaX7~jFSKuJAiG0iaonXndQ0GX~fYzz47eDS-jUEfzsxzr8SVhAkZA__" alt=""  style="width: 200px; 
+            height: 100px;">
+                <p>Inspector</p>
+            </a>
+        </div>
+        <div class="user-card">
+            <a href="login.html">
+               <img src="https://s3-alpha-sig.figma.com/img/dec0/65ea/5ab76fe719bd289bd0236b527fac9d38?Expires=1728864000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=CKEucJKKQkaq2sAdWW9nKlowa9FWdp0zG8ybu0p0t5tSunqp-SlX9vydxvMEwd5CMiNYkQnAYtUPcD-DCmo-E9jLQdbWgLpzc~cB-pgY3DoXOTGx6zvB-L0IpmaMQ~5UFaJqsL2Z9vC2Y3~vRI-0cBoXYPSOTrSgFVEVeBmGtAWq8Rz1mCHrj4diW~0C3y41wI0ES9r33R6tll8ox29ICpcski4G-FnobajRB74H13E-S1IY0bfWdTzIpd4cpO5vB~MKPMLyCImbFeoWfwELJeeaucLE5NILYWdzzwgb4Ofwump6TInZJK6oUxaA55MkS57XmYy9uguI6qRz62zY9w__" alt=""  style="width: 100px; 
+            height: 100px;">
+                <p>Service provider</p>
+            </a>
+        </div>
+    </div>
+
+    <div class="spotlight">
+        <h2>SPOTLIGHT</h2>
+        <ul>
+            <li>Inspection will be on 02-10-2024</li>
+            <li>Inspection Guidelines</li>
+        </ul>
+    </div>
+</body>
+</html>
