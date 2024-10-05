@@ -20,19 +20,13 @@
         }
 
         .header {
-            background-color: #FF6600; /* Same orange color as original */
+            background-color: #FF6600;
             color: white;
             padding: 10px 20px;
             display: flex;
-            align-items: center; /* Center vertically */
+            align-items: center;
             justify-content: space-between;
-            border-bottom: 5px solid black; /* Consistent with pg1 and pg3 */
-        }
-
-        .header .logo {
-            width: 50px; /* Corrected size */
-            height: 50px;
-            margin-right: 10px;
+            border-bottom: 5px solid black;
         }
 
         .header h1 {
@@ -63,7 +57,7 @@
             display: flex;
             flex-direction: column;
             width: 100%;
-            max-width: 300px; /* Ensure form doesn't get too wide */
+            max-width: 300px;
         }
 
         .form-group {
@@ -86,13 +80,13 @@
         }
 
         input[type="text"]:focus, input[type="password"]:focus {
-            border-color: #FF6600; /* Highlight on focus */
+            border-color: #FF6600;
             outline: none;
         }
 
         .submit-button {
             padding: 10px;
-            background-color: #FF6600DC; /* Orange background with slight transparency */
+            background-color: #FF6600DC;
             color: white;
             border: none;
             border-radius: 5px;
@@ -103,7 +97,7 @@
         }
 
         .submit-button:hover {
-            background-color: #FF6600; /* Darker orange on hover */
+            background-color: #FF6600;
         }
 
         .forgot-password {
@@ -122,36 +116,16 @@
             color: #e55d00;
             text-decoration: underline;
         }
-
-        /* Responsive Adjustments */
-        @media (max-width: 480px) {
-            .header h1 {
-                font-size: 28px;
-            }
-
-            .content {
-                margin: 10px;
-                padding: 15px;
-            }
-
-            .login-form {
-                max-width: 100%;
-            }
-        }
     </style>
 </head>
 <body>
     <div class="header">
-        <div style="display: flex; align-items: center;">
-            <img src="https://s3-alpha-sig.figma.com/img/ea78/32df/18593a01185ebb9bff9cea97e4c60eac?Expires=1728864000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=bEZzU1iymV4GH1Ytg1ZBhobsWrr0c2rLsctVNotEhapFLvXdncPmaIpH1e3zd4X-5MKnOLWBryJwHufA98-vhaQ5L93cUhJHatZtkCRVBTkmdY2Q6VOCqIH8qLHDYOOJqpxhNlw9KrKEEw73W35Qk9FaSj3t1lyg3C9VO0dGGejIwQSG--GSJnsoC5q83lbNrZn2d5H4ehnGpGe~6rydSEBgmSFjyLGk0-ntVinClw7hYgU8iVC3ootZ6Avr0eKT-r3kK2f8jLh-jQgUukFOIwFCy4Zu3LMPNhYLYUgSrKTWtVoe1yymD6borKsSHMi9W4fHRK3rKZBYvt7kaRHjPw__" alt="VITSPECT Logo" class="logo">
-            <h1>VITSPECT</h1>
-        </div>
-        <!-- You can add navigation or other elements here if needed -->
+        <h1>VITSPECT</h1>
     </div>
 
     <div class="content">
         <h2>Login</h2>
-        <form class="login-form" action="login_process.php" method="post">
+        <form class="login-form" id="loginForm">
             <div class="form-group">
                 <label for="username">Username:</label>
                 <input type="text" id="username" name="username" required placeholder="Enter your username">
@@ -163,8 +137,27 @@
             <button type="submit" class="submit-button">Login</button>
         </form>
         <div class="forgot-password">
-            <a href="forgot_password.html">Forgot Password?</a> <!-- Link to Forgot Password Page -->
+            <a href="forgot_password.html">Forgot Password?</a>
         </div>
     </div>
+
+    <script>
+        document.getElementById("loginForm").addEventListener("submit", function(event) {
+            event.preventDefault();  // Prevent form from submitting
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+
+            // Mock login validation (for example purposes only)
+            if (username === "student" && password === "studentPass") {
+                window.location.href = "student.html";  // Redirect to student page
+            } else if (username === "inspector" && password === "inspectorPass") {
+                window.location.href = "home2.html";  // Redirect to inspector page
+            } else if (username === "service" && password === "servicePass") {
+                window.location.href = "index.html";  // Redirect to service provider page
+            } else {
+                alert("Invalid login credentials. Please try again.");
+            }
+        });
+    </script>
 </body>
 </html>
