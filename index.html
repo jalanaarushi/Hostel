@@ -3,93 +3,104 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Washroom Inspection</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>VITSPECT</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4; /* Background color for better contrast */
+            background-color: white;
         }
 
         .header {
-            background-color: #ff6600; /* Header color */
-            padding: 20px;
+            background-color: #FF6600;
+            color: white;
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            color: white;
+            padding: 10px;
+            /* border-bottom: 5px solid black; */
         }
 
-        .header .logo {
-            height: 50px; /* Adjust logo size */
+        .logo {
+            width: 50px;
+            height: 50px;
+            margin-right: 20px;
         }
 
-        nav a {
-            color: white;
+        h1 {
+            font-size: 36px;
+            margin: 0;
+        }
+
+        .content {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            padding: 40px;
+            justify-items: center;
+        }
+
+        .user-card {
+            text-align: center;
+        }
+
+        .user-card a {
             text-decoration: none;
-            margin: 0 15px; /* Space between nav links */
+            color: black;
         }
 
-        .container {
-            max-width: 600px; /* Limit the width of the container */
-            margin: 20px auto; /* Center the container */
+        .user-icon {
+            width: 100px;
+            height: 100px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 18px;
+            margin: 0;
+        }
+
+        .spotlight {
             padding: 20px;
-            background: white; /* Background for the form */
-            border-radius: 8px; /* Rounded corners */
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+            background-color: white;
+            /* border-top: 5px ; */
         }
 
-        h2 {
-            text-align: center; /* Center the title */
-            margin-bottom: 20px; /* Space below title */
+        .spotlight h2 {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
         }
 
-        .inspection-item {
-            display: flex; /* Align items in a row */
-            align-items: center; /* Center vertically */
-            justify-content: space-between; /* Space between label and radio group */
-            margin-bottom: 15px; /* Space below each inspection item */
+        .spotlight ul {
+            list-style: none;
+            padding: 0;
         }
 
-        .radio-group {
-            display: flex; /* Align radio buttons in a row */
-            gap: 10px; /* Space between radio buttons */
+        .spotlight li {
+            font-size: 18px;
+            margin: 5px 0;
+            position: relative;
         }
 
-        .inspection-item label {
-            margin-right: 5px; /* Space between the label and the radio buttons */
-            width: 120px; /* Fixed width for consistent alignment */
+        .spotlight li::before {
+            content: "➤";
+            color: red;
+            position: absolute;
+            left: -20px;
+            font-size: 20px;
         }
 
-        /* Comment Box Styles */
-        textarea {
-            width: 100%; /* Full width */
-            margin-top: 5px; /* Space above textarea */
-            padding: 10px; /* Padding for textarea */
-            border-radius: 4px; /* Rounded corners */
-            border: 1px solid #ccc; /* Border styling */
+        @media (max-width: 768px) {
+            .content {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
 
-        /* Button Styles */
-        .button-group {
-            text-align: center; /* Center buttons */
-            margin-top: 20px; /* Space above button group */
-        }
-
-        .next-btn {
-            padding: 10px 20px; /* Padding for button */
-            background-color: #ff6600; /* Button color */
-            color: white; /* Button text color */
-            border: none; /* Remove border */
-            border-radius: 4px; /* Rounded corners */
-            cursor: pointer; /* Pointer cursor */
-            font-size: 16px; /* Font size for button */
-        }
-
-        .next-btn:hover {
-            background-color: #e65c00; /* Darker button on hover */
+        @media (max-width: 480px) {
+            .content {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -100,87 +111,44 @@
         </div>
 
         <nav>
-            <a href="room.html">Room</a>
-            <a href="index.html">Washroom</a>
-            <a href="mess.html">Mess</a>
+            <a href="#">Room</a>
+            <a href="#">Washroom</a>
+            <a href="#">Mess</a>
             <a href="#" class="logout">Logout</a>
         </nav>
     </div>
 
-    <div class="container">
-        <h2>Washroom Inspection</h2>
+    <div class="content">
+        <div class="user-card">
+            <a href="login.html">
 
-        <!-- Inspection Options -->
-        <div class="inspection-item">
-            <label>Light</label>
-            <div class="radio-group">
-                <label><input type="radio" name="light" value="good"> Good</label>
-                <label><input type="radio" name="light" value="average"> Average</label>
-                <label><input type="radio" name="light" value="bad"> Bad</label>
-            </div>
+                <img src="https://s3-alpha-sig.figma.com/img/7650/cfd0/b50dd0529e2c7dc704f8fba79db389fb?Expires=1728864000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=TP7NGQETt9RJ9m5AI~Ijrlwzr~MiMqnI-2tys55kMjNUODONuGR11xest3BPvfYBJpnkDXvzlkVnH2xdcVKvkJ5bcbNK0JkWH93RTUYqEQGonK~B0fPVJOQdksMoRAa6nxUM08XYAohQFdx8-q-8BqqTz7jSbSYc6y0MSb3129aEhh8WOuZX~16fi-wpkvoiwYrM1SlF5~COFOZCeK2mFB3LsqFndicb9if017CmIcdIwAKs7IDtXq7~GC5KuIhOlTgfiQ7wpr9Yr0dbOuJ2cSoFGo7SY5T5GRzlsn553Dw-6BV-md7rF~nlLLrZ9dKtqZd74HELTecOQBGiY0kuJA__" alt=" " style="width: 100px; 
+            height: 100px;">
+                <p>Students</p>
+            </a>
         </div>
-
-        <div class="inspection-item">
-            <label>Tap</label>
-            <div class="radio-group">
-                <label><input type="radio" name="tap" value="good"> Good</label>
-                <label><input type="radio" name="tap" value="average"> Average</label>
-                <label><input type="radio" name="tap" value="bad"> Bad</label>
-            </div>
+        <div class="user-card">
+            <a href="login.html">
+                <img src="https://s3-alpha-sig.figma.com/img/3276/ae28/e0ef2e03e932715367089ae176eb2ae0?Expires=1728864000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=FhCNi92Weq7c6YOPLUcGdO4rdhNJLeFsy4FoS6DvNDhcGM-JYbfqRqlYpSp3nkpFjOF2Ql6m79-wZWqyIahRDobDrApUf4Ax4INgcTotkWTlmUPRjIZK4Ie6~2Bj1Jh6NFozjYUHQpT9thWmDOnkzwVrDm5AnQHMsCVHLdYpHyBm3olTEuA14PvYiqVIRrp4b1VgyroV9ES2pidlG0CeEUi2GSTXU202~cYltaJMvJmWbYbXN-MuRF3a2viFpC1KwemBWz35iWZLz9eCPysF~RY1lMvPNLjxxaX7~jFSKuJAiG0iaonXndQ0GX~fYzz47eDS-jUEfzsxzr8SVhAkZA__" alt=""  style="width: 200px; 
+            height: 100px;">
+                <p>Inspector</p>
+            </a>
         </div>
-
-        <div class="inspection-item">
-            <label>Heater</label>
-            <div class="radio-group">
-                <label><input type="radio" name="heater" value="good"> Good</label>
-                <label><input type="radio" name="heater" value="average"> Average</label>
-                <label><input type="radio" name="heater" value="bad"> Bad</label>
-            </div>
-        </div>
-
-        <div class="inspection-item">
-            <label>Water Availability</label>
-            <div class="radio-group">
-                <label><input type="radio" name="water" value="good"> Good</label>
-                <label><input type="radio" name="water" value="average"> Average</label>
-                <label><input type="radio" name="water" value="bad"> Bad</label>
-            </div>
-        </div>
-
-        <div class="inspection-item">
-            <label>Cleaning</label>
-            <div class="radio-group">
-                <label><input type="radio" name="cleaning" value="good"> Good</label>
-                <label><input type="radio" name="cleaning" value="average"> Average</label>
-                <label><input type="radio" name="cleaning" value="bad"> Bad</label>
-            </div>
-        </div>
-
-        <div class="inspection-item">
-            <label>Pipe Leakage</label>
-            <div class="radio-group">
-                <label><input type="radio" name="leakage" value="good"> Good</label>
-                <label><input type="radio" name="leakage" value="average"> Average</label>
-                <label><input type="radio" name="leakage" value="bad"> Bad</label>
-            </div>
-        </div>
-
-        <!-- Comment Box -->
-        <div class="inspection-item">
-            <label for="comment">Add a Comment</label>
-            <textarea id="comment" name="comment" rows="4" placeholder="Enter your comment here..."></textarea>
-        </div>
-
-        <!-- Next Button -->
-        <div class="button-group">
-            <button class="next-btn" onclick="goToNextPage()">Next</button>
+        <div class="user-card">
+            <a href="login.html">
+               <img src="https://s3-alpha-sig.figma.com/img/dec0/65ea/5ab76fe719bd289bd0236b527fac9d38?Expires=1728864000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=CKEucJKKQkaq2sAdWW9nKlowa9FWdp0zG8ybu0p0t5tSunqp-SlX9vydxvMEwd5CMiNYkQnAYtUPcD-DCmo-E9jLQdbWgLpzc~cB-pgY3DoXOTGx6zvB-L0IpmaMQ~5UFaJqsL2Z9vC2Y3~vRI-0cBoXYPSOTrSgFVEVeBmGtAWq8Rz1mCHrj4diW~0C3y41wI0ES9r33R6tll8ox29ICpcski4G-FnobajRB74H13E-S1IY0bfWdTzIpd4cpO5vB~MKPMLyCImbFeoWfwELJeeaucLE5NILYWdzzwgb4Ofwump6TInZJK6oUxaA55MkS57XmYy9uguI6qRz62zY9w__" alt=""  style="width: 100px; 
+            height: 100px;">
+                <p>Service provider</p>
+            </a>
         </div>
     </div>
 
-    <script>
-        function goToNextPage() {
-            window.location.href = "Washroom-inspection.html"; // Change this to the actual name of your second page
-        }
-    </script>
+    <div class="spotlight">
+        <h2>SPOTLIGHT</h2>
+        <ul>
+            <li>Inspection will be on 02-10-2024</li>
+            <li>Inspection Guidelines</li>
+        </ul>
+    </div>
 </body>
 </html>
