@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VITSPECT - Login</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        .header {
+            background-color: #FF6600; /* Same orange color as original */
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center; /* Center vertically */
+            justify-content: space-between;
+            border-bottom: 5px solid black; /* Consistent with pg1 and pg3 */
+        }
+
+        .header .logo {
+            width: 50px; /* Corrected size */
+            height: 50px;
+            margin-right: 10px;
+        }
+
+        .header h1 {
+            font-size: 36px;
+            margin: 0;
+        }
+
+        .content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 20px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .content h2 {
+            margin-bottom: 20px;
+            font-size: 28px;
+            color: #333;
+        }
+
+        .login-form {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            max-width: 300px; /* Ensure form doesn't get too wide */
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        input[type="text"], input[type="password"] {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 100%;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+
+        input[type="text"]:focus, input[type="password"]:focus {
+            border-color: #FF6600; /* Highlight on focus */
+            outline: none;
+        }
+
+        .submit-button {
+            padding: 10px;
+            background-color: #FF6600DC; /* Orange background with slight transparency */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .submit-button:hover {
+            background-color: #FF6600; /* Darker orange on hover */
+        }
+
+        .forgot-password {
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        .forgot-password a {
+            color: #FF6600;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s, text-decoration 0.3s;
+        }
+
+        .forgot-password a:hover {
+            color: #e55d00;
+            text-decoration: underline;
+        }
+        
+        body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 20px auto;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .logo {
+            width: 50px;
+        }
+
+        .logout a {
+            color: #ff6600;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        h2 {
+            color: #ff6600;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .form-wrapper {
+            display: flex;
+            justify-content: center;
+        }
+
+        .form-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            width: 600px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .form-group {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .form-group label {
+            font-weight: bold;
+            width: 30%;
+            text-align: left;
+        }
+
+        .form-group select {
+            padding: 10px;
+            width: 65%;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #ff6600;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #ff5500;
+        }
+
+
+        /* Responsive Adjustments */
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 28px;
+            }
+
+            .content {
+                margin: 10px;
+                padding: 15px;
+            }
+
+            .login-form {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <img src="https://s3-alpha-sig.figma.com/img/ea78/32df/18593a01185ebb9bff9cea97e4c60eac?Expires=1728864000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=bEZzU1iymV4GH1Ytg1ZBhobsWrr0c2rLsctVNotEhapFLvXdncPmaIpH1e3zd4X-5MKnOLWBryJwHufA98-vhaQ5L93cUhJHatZtkCRVBTkmdY2Q6VOCqIH8qLHDYOOJqpxhNlw9KrKEEw73W35Qk9FaSj3t1lyg3C9VO0dGGejIwQSG--GSJnsoC5q83lbNrZn2d5H4ehnGpGe~6rydSEBgmSFjyLGk0-ntVinClw7hYgU8iVC3ootZ6Avr0eKT-r3kK2f8jLh-jQgUukFOIwFCy4Zu3LMPNhYLYUgSrKTWtVoe1yymD6borKsSHMi9W4fHRK3rKZBYvt7kaRHjPw__" alt="Logo" class="logo"> <!-- Replace with actual logo path -->
+        <nav>
+            <a href="choose.html">Room</a>
+            <a href="index.html">Washroom</a>
+            <a href="mess.html">Mess</a>
+            <a href="#" class="logout">Logout</a>
+        </nav>
+    </div>
+
+    <div class="form-wrapper">
+        <div class="form-container">
+            <form action="#">
+                <div class="form-group">
+                    <label for="block-type">BLOCK TYPE</label>
+                    <select id="block-type">
+                        <option>Select the block type</option>
+                        <option>Girls</option>
+                        <option>Boys</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="block-name">BLOCK NAME</label>
+                    <select id="block-name">
+                        <option>Select the block name</option>
+                        <option>A</option>
+                        <option>B</option>
+                        <option>C</option>
+                        <option>D</option>
+                        <option>E</option>
+                        <option>F</option>
+                        <option>G</option>
+                        <option>H</option>
+                        <option>I</option>
+                        <option>J</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="floor-number">FLOOR NUMBER</label>
+                    <select id="floor-number" onchange="populateRoomNumbers()">
+                        <option>Select the floor number</option>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option>6</option>
+                        <option>7</option>
+                        <option>8</option>
+                        <option>9</option>
+                        <option>10</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="room-number">ROOM NUMBER</label>
+                    <select id="room-number">
+                        <option>Select the room number</option>
+                    </select>
+                </div>
+
+                <div class="button-group">
+                    <button class="next-btn" type="button" onclick="goToNextPage()">Next</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    function populateRoomNumbers() {
+        var floorNumber = document.getElementById("floor-number").value;
+        var roomNumberDropdown = document.getElementById("room-number");
+        roomNumberDropdown.innerHTML = "<option>Select the room number</option>";
+        if (floorNumber !== "Select the floor number") {
+            for (var i = 1; i <= 23; i++) {
+                var option = document.createElement("option");
+                option.text = floorNumber + (i < 10 ? "0" + i : i);
+                roomNumberDropdown.add(option);
+            }
+        }
+    }
+    function goToNextPage() {
+            window.location.href = "room.html"; 
+        }
+</script>
+    
+</body>
+</html>
