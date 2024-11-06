@@ -100,19 +100,19 @@
             background-color: #FF6600;
         }
 
-        .forgot-password {
+        .signup-link {
             margin-top: 10px;
             text-align: center;
         }
 
-        .forgot-password a {
+        .signup-link a {
             color: #FF6600;
             text-decoration: none;
             font-size: 14px;
             transition: color 0.3s, text-decoration 0.3s;
         }
 
-        .forgot-password a:hover {
+        .signup-link a:hover {
             color: #e55d00;
             text-decoration: underline;
         }
@@ -136,26 +136,22 @@
             </div>
             <button type="submit" class="submit-button">Login</button>
         </form>
-        <div class="forgot-password">
-            <a href="forgot_password.html">Forgot Password?</a>
+        <div class="signup-link">
+            <a href="signup.html">Don't have an account? Sign up here</a>
         </div>
     </div>
 
     <script>
         document.getElementById("loginForm").addEventListener("submit", function(event) {
-            event.preventDefault();  // Prevent form from submitting
+            event.preventDefault();  
             const username = document.getElementById("username").value;
             const password = document.getElementById("password").value;
 
-            // Mock login validation (for example purposes only)
-            if (username === "student" && password === "studentPass") {
-                window.location.href = "student.html";  // Redirect to student page
-            } else if (username === "inspector" && password === "inspectorPass") {
-                window.location.href = "home2.html";  // Redirect to inspector page
-            } else if (username === "service" && password === "servicePass") {
-                window.location.href = "index.html";  // Redirect to service provider page
+            if (username && password) {
+                alert("Logged in successfully!");
+                window.location.href = "home.html";  
             } else {
-                alert("Invalid login credentials. Please try again.");
+                alert("Please fill in all fields.");
             }
         });
     </script>
