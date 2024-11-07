@@ -24,7 +24,6 @@
             justify-content: space-between;
             align-items: center;
             color: white;
-            z-index: 10;
         }
 
         .header .logo {
@@ -57,11 +56,10 @@
             border-radius: 8px;
             overflow: hidden;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            margin-top: 20px;
         }
 
         th, td {
-            padding: 20px;
+            padding: 15px;
             text-align: left;
             border-bottom: 1px solid #ddd;
         }
@@ -132,7 +130,8 @@
             <a href="choose.html">Room</a>
             <a href="home2.html">Washroom</a>
             <a href="mess.html">Mess</a>
-            <a href="swimming.html">Swimming pool</a>
+            <a href="swimming.html">Swimming Pool</a>
+            <a href="gym.html">Gym</a>
             <a href="index.html" class="logout">Logout</a>
         </nav>
     </div>
@@ -143,51 +142,35 @@
                 <th colspan="2">Gym Inspection</th>
             </tr>
 
-            <!-- Gym Equipment Section -->
+            <!-- Equipment Inspection Section -->
             <tr>
-                <td><label>Gym Equipment</label></td>
+                <td><label>Equipment Condition</label></td>
                 <td class="checkbox-group">
-                    <label><input type="checkbox" name="gymEquipment"> Treadmill not working</label>
-                    <label><input type="checkbox" name="gymEquipment"> Elliptical malfunctioning</label>
-                    <label><input type="checkbox" name="gymEquipment"> Weight machines malfunctioning</label>
-                    <label><input type="checkbox" name="gymEquipment"> Exercise bikes not functioning</label>
-
-                    <!-- Equipment maintenance -->
-                    <label><input type="checkbox" name="gymEquipment" id="equipmentCheckbox"> Equipment Maintenance</label>
-                    <div class="sub-checkbox-group" id="equipmentSubCheckboxes">
-                        <label class="sub-checkbox"><input type="checkbox" name="equipment"> Broken parts</label>
-                        <label class="sub-checkbox"><input type="checkbox" name="equipment"> Needs lubrication</label>
-                    </div>
+                    <label><input type="checkbox" name="equipment"> Treadmill not working</label>
+                    <label><input type="checkbox" name="equipment"> Elliptical machine malfunctioning</label>
+                    <label><input type="checkbox" name="equipment"> Dumbbells damaged</label>
+                    <label><input type="checkbox" name="equipment"> Cable machine issue</label>
                 </td>
             </tr>
 
-            <!-- Flooring Section -->
+            <!-- Safety Inspection Section -->
             <tr>
-                <td><label>Flooring</label></td>
+                <td><label>Safety</label></td>
                 <td class="checkbox-group">
-                    <label><input type="checkbox" name="flooring"> Floor tiles cracked</label>
-                    <label><input type="checkbox" name="flooring"> Flooring is slippery</label>
-                    <label><input type="checkbox" name="flooring"> Carpet damaged</label>
+                    <label><input type="checkbox" name="safety"> Emergency exit not accessible</label>
+                    <label><input type="checkbox" name="safety"> Floor is slippery</label>
+                    <label><input type="checkbox" name="safety"> Fire extinguisher missing</label>
+                    <label><input type="checkbox" name="safety"> Safety signs are not visible</label>
                 </td>
             </tr>
 
-            <!-- Lighting Section -->
+            <!-- Cleanliness Section -->
             <tr>
-                <td><label>Lighting</label></td>
+                <td><label>Cleanliness</label></td>
                 <td class="checkbox-group">
-                    <label><input type="checkbox" name="lighting"> Lights not working</label>
-                    <label><input type="checkbox" name="lighting"> Too dim</label>
-                    <label><input type="checkbox" name="lighting"> Flickering lights</label>
-                </td>
-            </tr>
-
-            <!-- Ventilation Section -->
-            <tr>
-                <td><label>Ventilation</label></td>
-                <td class="checkbox-group">
-                    <label><input type="checkbox" name="ventilation"> Air conditioning not working</label>
-                    <label><input type="checkbox" name="ventilation"> Poor airflow</label>
-                    <label><input type="checkbox" name="ventilation"> Vent fans not working</label>
+                    <label><input type="checkbox" name="cleaning"> Floors are dirty</label>
+                    <label><input type="checkbox" name="cleaning"> Equipment not sanitized</label>
+                    <label><input type="checkbox" name="cleaning"> Locker room unclean</label>
                 </td>
             </tr>
 
@@ -210,12 +193,6 @@
         function goToNextPage() {
             window.location.href = "Gym-inspection.html";
         }
-
-        // Show/hide sub-checkboxes based on checkbox status
-        document.getElementById('equipmentCheckbox').addEventListener('change', function () {
-            const equipmentSubCheckboxes = document.getElementById('equipmentSubCheckboxes');
-            equipmentSubCheckboxes.style.display = this.checked ? 'block' : 'none';
-        });
     </script>
 </body>
 

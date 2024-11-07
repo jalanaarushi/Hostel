@@ -6,90 +6,104 @@
     <title>Washroom Inspection</title>
     <link rel="stylesheet" href="styles.css">
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        html, body {
+            height: 100%;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4; /* Background color for better contrast */
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
         }
 
         .header {
-            background-color: #ff6600; /* Header color */
+            background-color: #ff6600;
             padding: 20px;
+            color: white;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            color: white;
+            box-sizing: border-box;
         }
 
         .header .logo {
-            height: 50px; /* Adjust logo size */
+            height: 50px;
         }
 
         nav a {
             color: white;
             text-decoration: none;
-            margin: 0 15px; /* Space between nav links */
+            margin: 0 15px;
         }
 
-        .container {
-            max-width: 600px; /* Limit the width of the container */
-            margin: 20px auto; /* Center the container */
-            padding: 20px;
-            background: white; /* Background for the form */
-            border-radius: 8px; /* Rounded corners */
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+        /* Full-height container */
+        .container-table {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh; /* Full viewport height */
+            width: 100%;
+            background-color: #f4f4f4;
+            box-sizing: border-box;
+            padding: 0 20px;
         }
 
-        h2 {
-            text-align: center; /* Center the title */
-            margin-bottom: 20px; /* Space below title */
+        table {
+            width: 100%;
+            background: white;
+            border-collapse: collapse;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
-        .inspection-item {
-            display: flex; /* Align items in a row */
-            align-items: center; /* Center vertically */
-            justify-content: space-between; /* Space between label and radio group */
-            margin-bottom: 15px; /* Space below each inspection item */
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
         }
 
-        .radio-group {
-            display: flex; /* Align radio buttons in a row */
-            gap: 10px; /* Space between radio buttons */
+        th {
+            background-color: #ff6600;
+            color: white;
+            font-size: 24px;
+            text-align: center;
         }
 
-        .inspection-item label {
-            margin-right: 5px; /* Space between the label and the radio buttons */
-            width: 120px; /* Fixed width for consistent alignment */
+        .checkbox-group {
+            display: flex;
+            gap: 10px;
         }
 
-        /* Comment Box Styles */
+        .checkbox-group label {
+            font-weight: normal;
+        }
+
         textarea {
-            width: 100%; /* Full width */
-            margin-top: 5px; /* Space above textarea */
-            padding: 10px; /* Padding for textarea */
-            border-radius: 4px; /* Rounded corners */
-            border: 1px solid #ccc; /* Border styling */
+            width: 100%;
+            padding: 10px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            resize: vertical;
         }
 
-        /* Button Styles */
         .button-group {
-            text-align: center; /* Center buttons */
-            margin-top: 20px; /* Space above button group */
+            text-align: center;
+            padding: 20px;
         }
 
         .next-btn {
-            padding: 10px 20px; /* Padding for button */
-            background-color: #ff6600; /* Button color */
-            color: white; /* Button text color */
-            border: none; /* Remove border */
-            border-radius: 4px; /* Rounded corners */
-            cursor: pointer; /* Pointer cursor */
-            font-size: 16px; /* Font size for button */
+            padding: 10px 20px;
+            background-color: #ff6600;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
         }
 
         .next-btn:hover {
-            background-color: #e65c00; /* Darker button on hover */
+            background-color: #e65c00;
         }
     </style>
 </head>
@@ -103,83 +117,55 @@
             <a href="choose.html">Room</a>
             <a href="home2.html">Washroom</a>
             <a href="mess.html">Mess</a>
-            <a href="#" class="logout">Logout</a>
+            <a href="swimming.html">Swimming pool</a>
+            <a href="index.html" class="logout">Logout</a>
         </nav>
     </div>
 
-    <div class="container">
-        <h2>Washroom Inspection</h2>
+    <div class="container-table">
+        <table>
+            <tr>
+                <th colspan="2">Washroom Inspection</th>
+            </tr>
 
-        <!-- Inspection Options -->
-        <div class="inspection-item">
-            <label>Light</label>
-            <div class="radio-group">
-                <label><input type="radio" name="light" value="good"> Good</label>
-                <label><input type="radio" name="light" value="average"> Average</label>
-                <label><input type="radio" name="light" value="bad"> Bad</label>
-            </div>
-        </div>
+            <tr>
+                <td><label>Electricity</label></td>
+                <td class="checkbox-group">
+                    <label><input type="checkbox" name="electricity"> Exhaust not working</label>
+                    <label><input type="checkbox" name="electricity"> Tubelight not working</label>
+                </td>
+            </tr>
 
-        <div class="inspection-item">
-            <label>Tap</label>
-            <div class="radio-group">
-                <label><input type="radio" name="tap" value="good"> Good</label>
-                <label><input type="radio" name="tap" value="average"> Average</label>
-                <label><input type="radio" name="tap" value="bad"> Bad</label>
-            </div>
-        </div>
+            <tr>
+                <td><label>Maintenance</label></td>
+                <td class="checkbox-group">
+                    <label><input type="checkbox" name="maintenance"> Water clogging</label>
+                </td>
+            </tr>
 
-        <div class="inspection-item">
-            <label>Heater</label>
-            <div class="radio-group">
-                <label><input type="radio" name="heater" value="good"> Good</label>
-                <label><input type="radio" name="heater" value="average"> Average</label>
-                <label><input type="radio" name="heater" value="bad"> Bad</label>
-            </div>
-        </div>
+            <tr>
+                <td><label>Plumber</label></td>
+                <td class="checkbox-group">
+                    <label><input type="checkbox" name="maintenance"> Water not coming in flush/pipes/taps</label>
+                </td>
+            </tr>
 
-        <div class="inspection-item">
-            <label>Water Availability</label>
-            <div class="radio-group">
-                <label><input type="radio" name="water" value="good"> Good</label>
-                <label><input type="radio" name="water" value="average"> Average</label>
-                <label><input type="radio" name="water" value="bad"> Bad</label>
-            </div>
-        </div>
+            <tr>
+                <td><label for="comment">Add a Comment</label></td>
+                <td><textarea id="comment" name="comment" rows="4" placeholder="Enter your comment here..."></textarea></td>
+            </tr>
 
-        <div class="inspection-item">
-            <label>Cleaning</label>
-            <div class="radio-group">
-                <label><input type="radio" name="cleaning" value="good"> Good</label>
-                <label><input type="radio" name="cleaning" value="average"> Average</label>
-                <label><input type="radio" name="cleaning" value="bad"> Bad</label>
-            </div>
-        </div>
-
-        <div class="inspection-item">
-            <label>Pipe Leakage</label>
-            <div class="radio-group">
-                <label><input type="radio" name="leakage" value="good"> Good</label>
-                <label><input type="radio" name="leakage" value="average"> Average</label>
-                <label><input type="radio" name="leakage" value="bad"> Bad</label>
-            </div>
-        </div>
-
-        <!-- Comment Box -->
-        <div class="inspection-item">
-            <label for="comment">Add a Comment</label>
-            <textarea id="comment" name="comment" rows="4" placeholder="Enter your comment here..."></textarea>
-        </div>
-
-        <!-- Next Button -->
-        <div class="button-group">
-            <button class="next-btn" onclick="goToNextPage()">Next</button>
-        </div>
+            <tr>
+                <td colspan="2" class="button-group">
+                    <button class="next-btn" onclick="goToNextPage()">Next</button>
+                </td>
+            </tr>
+        </table>
     </div>
 
     <script>
         function goToNextPage() {
-            window.location.href = "Washroom-inspection.html"; // Change this to the actual name of your second page
+            window.location.href = "Washroom-inspection.html"; // Change this to the actual name of your next page
         }
     </script>
 </body>

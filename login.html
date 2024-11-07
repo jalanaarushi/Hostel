@@ -116,11 +116,16 @@
             color: #e55d00;
             text-decoration: underline;
         }
+        #icon
+        {
+            color: white;
+            text-decoration: none;
+        }
     </style>
 </head>
 <body>
     <div class="header">
-        <h1>VITSPECT</h1>
+        <a  id="icon" href="index.html">VITSPECT</a>
     </div>
 
     <div class="content">
@@ -143,17 +148,17 @@
 
     <script>
         document.getElementById("loginForm").addEventListener("submit", function(event) {
-            event.preventDefault();  // Prevent form from submitting
+            event.preventDefault();  
             const username = document.getElementById("username").value;
             const password = document.getElementById("password").value;
 
-            // Mock login validation (for example purposes only)
+            
             if (username === "student" && password === "studentPass") {
-                window.location.href = "student.html";  // Redirect to student page
+                window.location.href = "student.html";  
             } else if (username === "inspector" && password === "inspectorPass") {
-                window.location.href = "home2.html";  // Redirect to inspector page
+                window.location.href = "home2.html";  
             } else if (username === "service" && password === "servicePass") {
-                window.location.href = "index.html";  // Redirect to service provider page
+                window.location.href = "index.html";  
             } else {
                 alert("Invalid login credentials. Please try again.");
             }

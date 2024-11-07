@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gym Inspection</title>
+    <title>Swimming Pool Inspection</title>
     <link rel="stylesheet" href="styles.css">
     <style>
         body {
@@ -24,7 +24,6 @@
             justify-content: space-between;
             align-items: center;
             color: white;
-            z-index: 10;
         }
 
         .header .logo {
@@ -57,11 +56,10 @@
             border-radius: 8px;
             overflow: hidden;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            margin-top: 20px;
         }
 
         th, td {
-            padding: 20px;
+            padding: 15px;
             text-align: left;
             border-bottom: 1px solid #ddd;
         }
@@ -77,6 +75,13 @@
             display: flex;
             flex-direction: column;
             gap: 10px;
+        }
+
+        .sub-checkbox-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-left: 20px;
         }
 
         textarea {
@@ -106,18 +111,19 @@
             background-color: #e65c00;
         }
 
-        .sub-checkbox-group {
-            margin-left: 20px;
-            display: none;
-        }
-
         .checkbox-group input[type="checkbox"] {
-            margin-right: 10px;
             transform: scale(1.2);
+            margin-right: 10px;
         }
 
-        .checkbox-group .sub-checkbox input[type="checkbox"] {
+        .sub-checkbox-group label {
+            display: flex;
+            align-items: center;
+        }
+
+        .sub-checkbox-group input[type="checkbox"] {
             transform: scale(1);
+            margin-right: 5px;
         }
     </style>
 </head>
@@ -132,7 +138,7 @@
             <a href="choose.html">Room</a>
             <a href="home2.html">Washroom</a>
             <a href="mess.html">Mess</a>
-            <a href="swimming.html">Swimming pool</a>
+            <a href="gym.html">Gymnasium</a>
             <a href="index.html" class="logout">Logout</a>
         </nav>
     </div>
@@ -140,54 +146,54 @@
     <div class="container">
         <table>
             <tr>
-                <th colspan="2">Gym Inspection</th>
+                <th colspan="2">Swimming Pool Inspection</th>
             </tr>
 
-            <!-- Gym Equipment Section -->
+            <!-- Maintenance Section -->
             <tr>
-                <td><label>Gym Equipment</label></td>
+                <td><label>Maintenance</label></td>
                 <td class="checkbox-group">
-                    <label><input type="checkbox" name="gymEquipment"> Treadmill not working</label>
-                    <label><input type="checkbox" name="gymEquipment"> Elliptical malfunctioning</label>
-                    <label><input type="checkbox" name="gymEquipment"> Weight machines malfunctioning</label>
-                    <label><input type="checkbox" name="gymEquipment"> Exercise bikes not functioning</label>
+                    <!-- Cleaning Issues -->
+                    <label><input type="checkbox" id="cleaningCheckbox"> Not properly cleaned</label>
+                    <div class="sub-checkbox-group" id="cleaningSubCheckboxes">
+                        <label><input type="checkbox" name="cleaning"> Water quality is poor</label>
+                        <label><input type="checkbox" name="cleaning"> Pool walls are dirty</label>
+                        <label><input type="checkbox" name="cleaning"> Pool surface is covered with algae</label>
+                    </div>
 
-                    <!-- Equipment maintenance -->
-                    <label><input type="checkbox" name="gymEquipment" id="equipmentCheckbox"> Equipment Maintenance</label>
+                    <!-- Equipment Issues -->
+                    <label><input type="checkbox" id="equipmentCheckbox"> Equipment broken</label>
                     <div class="sub-checkbox-group" id="equipmentSubCheckboxes">
-                        <label class="sub-checkbox"><input type="checkbox" name="equipment"> Broken parts</label>
-                        <label class="sub-checkbox"><input type="checkbox" name="equipment"> Needs lubrication</label>
+                        <label><input type="checkbox" name="equipment"> Filter is broken</label>
+                        <label><input type="checkbox" name="equipment"> Heater is not working</label>
                     </div>
                 </td>
             </tr>
 
-            <!-- Flooring Section -->
+            <!-- Electrical Section -->
             <tr>
-                <td><label>Flooring</label></td>
+                <td><label>Electrical</label></td>
                 <td class="checkbox-group">
-                    <label><input type="checkbox" name="flooring"> Floor tiles cracked</label>
-                    <label><input type="checkbox" name="flooring"> Flooring is slippery</label>
-                    <label><input type="checkbox" name="flooring"> Carpet damaged</label>
+                    <label><input type="checkbox" id="electricalCheckbox"> Electrical issues</label>
+                    <div class="sub-checkbox-group" id="electricalSubCheckboxes">
+                        <label><input type="checkbox" name="electrical"> Lighting is not functioning</label>
+                        <label><input type="checkbox" name="electrical"> Power outlet is broken</label>
+                        <label><input type="checkbox" name="electrical"> Circuit breaker trips frequently</label>
+                        <label><input type="checkbox" name="electrical"> Wiring is exposed</label>
+                    </div>
                 </td>
             </tr>
 
-            <!-- Lighting Section -->
+            <!-- Plumbing Section -->
             <tr>
-                <td><label>Lighting</label></td>
+                <td><label>Plumbing</label></td>
                 <td class="checkbox-group">
-                    <label><input type="checkbox" name="lighting"> Lights not working</label>
-                    <label><input type="checkbox" name="lighting"> Too dim</label>
-                    <label><input type="checkbox" name="lighting"> Flickering lights</label>
-                </td>
-            </tr>
-
-            <!-- Ventilation Section -->
-            <tr>
-                <td><label>Ventilation</label></td>
-                <td class="checkbox-group">
-                    <label><input type="checkbox" name="ventilation"> Air conditioning not working</label>
-                    <label><input type="checkbox" name="ventilation"> Poor airflow</label>
-                    <label><input type="checkbox" name="ventilation"> Vent fans not working</label>
+                    <label><input type="checkbox" id="plumbingCheckbox"> Plumbing issues</label>
+                    <div class="sub-checkbox-group" id="plumbingSubCheckboxes">
+                        <label><input type="checkbox" name="plumbing"> Pump is malfunctioning</label>
+                        <label><input type="checkbox" name="plumbing"> Pipe leakage</label>
+                        <label><input type="checkbox" name="plumbing"> Water flow is low</label>
+                    </div>
                 </td>
             </tr>
 
@@ -208,13 +214,28 @@
 
     <script>
         function goToNextPage() {
-            window.location.href = "Gym-inspection.html";
+            window.location.href = "Swimming-pool-inspection.html";
         }
 
         // Show/hide sub-checkboxes based on checkbox status
+        document.getElementById('cleaningCheckbox').addEventListener('change', function () {
+            const cleaningSubCheckboxes = document.getElementById('cleaningSubCheckboxes');
+            cleaningSubCheckboxes.style.display = this.checked ? 'flex' : 'none';
+        });
+
         document.getElementById('equipmentCheckbox').addEventListener('change', function () {
             const equipmentSubCheckboxes = document.getElementById('equipmentSubCheckboxes');
-            equipmentSubCheckboxes.style.display = this.checked ? 'block' : 'none';
+            equipmentSubCheckboxes.style.display = this.checked ? 'flex' : 'none';
+        });
+
+        document.getElementById('electricalCheckbox').addEventListener('change', function () {
+            const electricalSubCheckboxes = document.getElementById('electricalSubCheckboxes');
+            electricalSubCheckboxes.style.display = this.checked ? 'flex' : 'none';
+        });
+
+        document.getElementById('plumbingCheckbox').addEventListener('change', function () {
+            const plumbingSubCheckboxes = document.getElementById('plumbingSubCheckboxes');
+            plumbingSubCheckboxes.style.display = this.checked ? 'flex' : 'none';
         });
     </script>
 </body>
