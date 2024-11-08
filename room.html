@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gym Inspection</title>
+    <title>Room Inspection</title>
     <link rel="stylesheet" href="styles.css">
     <style>
         body {
@@ -12,23 +12,22 @@
             margin: 0;
             padding: 0;
             background-color: #f4f4f4;
-            height: 100vh;
+            height: 100%;
             display: flex;
             flex-direction: column;
         }
 
         .header {
             background-color: #ff6600;
-            padding: 20px;
+            padding: 10px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             color: white;
-            z-index: 10;
         }
 
         .header .logo {
-            height: 50px;
+            height: 40px;
         }
 
         nav a {
@@ -38,8 +37,8 @@
         }
 
         .container {
-            width: 100vw;
-            height: calc(100vh - 80px);
+            width: 100%;
+            
             padding: 20px;
             background: white;
             box-sizing: border-box;
@@ -51,17 +50,16 @@
 
         table {
             width: 100%;
-            max-width: 800px;
+            
             background: white;
             border-collapse: collapse;
             border-radius: 8px;
             overflow: hidden;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            margin-top: 20px;
         }
 
         th, td {
-            padding: 20px;
+            padding: 15px;
             text-align: left;
             border-bottom: 1px solid #ddd;
         }
@@ -133,6 +131,8 @@
             <a href="home2.html">Washroom</a>
             <a href="mess.html">Mess</a>
             <a href="swimming.html">Swimming pool</a>
+            <a href="gym.html">Gymnasium</a>
+            <a href="Lift.html">Lift</a>
             <a href="index.html" class="logout">Logout</a>
         </nav>
     </div>
@@ -140,54 +140,85 @@
     <div class="container">
         <table>
             <tr>
-                <th colspan="2">Gym Inspection</th>
+                <th colspan="2">Room Inspection</th>
             </tr>
 
-            <!-- Gym Equipment Section -->
+            <!-- Electricity Inspection Section -->
             <tr>
-                <td><label>Gym Equipment</label></td>
+                <td><label>Electricity</label></td>
                 <td class="checkbox-group">
-                    <label><input type="checkbox" name="gymEquipment"> Treadmill not working</label>
-                    <label><input type="checkbox" name="gymEquipment"> Elliptical malfunctioning</label>
-                    <label><input type="checkbox" name="gymEquipment"> Weight machines malfunctioning</label>
-                    <label><input type="checkbox" name="gymEquipment"> Exercise bikes not functioning</label>
-
-                    <!-- Equipment maintenance -->
-                    <label><input type="checkbox" name="gymEquipment" id="equipmentCheckbox"> Equipment Maintenance</label>
-                    <div class="sub-checkbox-group" id="equipmentSubCheckboxes">
-                        <label class="sub-checkbox"><input type="checkbox" name="equipment"> Broken parts</label>
-                        <label class="sub-checkbox"><input type="checkbox" name="equipment"> Needs lubrication</label>
+                    <label><input type="checkbox" name="electricity"> Fan is not working</label>
+                    <label><input type="checkbox" name="electricity"> AC is not cooling effectively</label>
+                    <label><input type="checkbox" name="electricity"> Lights are malfunctioning</label>
+                    <label><input type="checkbox" name="electricity"> Power outlets are out of order</label>
+                    
+                    <!-- Switchboard checkbox with sub-checkboxes -->
+                    <label><input type="checkbox" name="electricity" id="switchboardCheckbox"> Switchboard</label>
+                    <div class="sub-checkbox-group" id="switchboardSubCheckboxes">
+                        <label class="sub-checkbox"><input type="checkbox" name="switchboard"> Regulator not working</label>
+                        <label class="sub-checkbox"><input type="checkbox" name="switchboard"> Switches are not working</label>
                     </div>
                 </td>
             </tr>
 
-            <!-- Flooring Section -->
+            <!-- Carpenter Inspection Section -->
             <tr>
-                <td><label>Flooring</label></td>
+                <td><label>Carpenter</label></td>
                 <td class="checkbox-group">
-                    <label><input type="checkbox" name="flooring"> Floor tiles cracked</label>
-                    <label><input type="checkbox" name="flooring"> Flooring is slippery</label>
-                    <label><input type="checkbox" name="flooring"> Carpet damaged</label>
+                    <label><input type="checkbox" name="maintenance" id="doorCheckbox"> Issues with the door</label>
+                    <div class="sub-checkbox-group" id="doorSubCheckboxes">
+                        <label class="sub-checkbox"><input type="checkbox" name="door"> Door not closing/opening properly</label>
+                        <label class="sub-checkbox"><input type="checkbox" name="door"> Door is making excess noise</label>
+                        <label class="sub-checkbox"><input type="checkbox" name="door"> Door stopper is broken</label>
+                    </div>
+
+                    <!-- Chair Issues -->
+                    <label><input type="checkbox" name="chair" id="chairCheckbox"> Chair broken</label>
+                    <div class="sub-checkbox-group" id="chairSubCheckboxes">
+                        <label class="sub-checkbox"><input type="checkbox" name="chair"> Legs are broken</label>
+                        <label class="sub-checkbox"><input type="checkbox" name="chair"> Seat is torn</label>
+                    </div>
+
+                    <!-- Table Issues -->
+                    <label><input type="checkbox" name="table" id="tableCheckbox"> Table broken</label>
+                    <div class="sub-checkbox-group" id="tableSubCheckboxes">
+                        <label class="sub-checkbox"><input type="checkbox" name="table"> Table top is cracked</label>
+                        <label class="sub-checkbox"><input type="checkbox" name="table"> Legs are unstable</label>
+                    </div>
+
+                    <!-- Bed Issues -->
+                    <label><input type="checkbox" name="bed" id="bedCheckbox"> Issues with the bed</label>
+                    <div class="sub-checkbox-group" id="bedSubCheckboxes">
+                        <label class="sub-checkbox"><input type="checkbox" name="bed"> Loose screws</label>
+                        <label class="sub-checkbox"><input type="checkbox" name="bed"> Sides are broken</label>
+                    </div>
+
+                    <!-- Window Issues -->
+                    <label><input type="checkbox" name="window" id="windowCheckbox"> Issues with the window</label>
+                    <div class="sub-checkbox-group" id="windowSubCheckboxes">
+                        <label class="sub-checkbox"><input type="checkbox" name="window"> Window is broken</label>
+                        <label class="sub-checkbox"><input type="checkbox" name="window"> Window is jammed/ rusted</label>
+                    </div>
                 </td>
             </tr>
 
-            <!-- Lighting Section -->
+            <!-- Maintenance Section -->
             <tr>
-                <td><label>Lighting</label></td>
+                <td><label>Maintenance</label></td>
                 <td class="checkbox-group">
-                    <label><input type="checkbox" name="lighting"> Lights not working</label>
-                    <label><input type="checkbox" name="lighting"> Too dim</label>
-                    <label><input type="checkbox" name="lighting"> Flickering lights</label>
-                </td>
-            </tr>
+                    <!-- Mirror Issues -->
+                    <label><input type="checkbox" name="mirror" id="mirrorCheckbox"> Issues with the mirror</label>
+                    <div class="sub-checkbox-group" id="mirrorSubCheckboxes">
+                        <label class="sub-checkbox"><input type="checkbox" name="mirror"> Mirror is broken</label>
+                        <label class="sub-checkbox"><input type="checkbox" name="mirror"> Mirror is foggy</label>
+                    </div>
 
-            <!-- Ventilation Section -->
-            <tr>
-                <td><label>Ventilation</label></td>
-                <td class="checkbox-group">
-                    <label><input type="checkbox" name="ventilation"> Air conditioning not working</label>
-                    <label><input type="checkbox" name="ventilation"> Poor airflow</label>
-                    <label><input type="checkbox" name="ventilation"> Vent fans not working</label>
+                    <!-- Cleaning Issues -->
+                    <label><input type="checkbox" name="cleaning" id="cleaningCheckbox"> Cleaning issues</label>
+                    <div class="sub-checkbox-group" id="cleaningSubCheckboxes">
+                        <label class="sub-checkbox"><input type="checkbox" name="cleaning"> Not cleaned properly</label>
+                        <label class="sub-checkbox"><input type="checkbox" name="cleaning"> Stains on surfaces</label>
+                    </div>
                 </td>
             </tr>
 
@@ -208,13 +239,48 @@
 
     <script>
         function goToNextPage() {
-            window.location.href = "Gym-inspection.html";
+            window.location.href = "Room-inspection.html";
         }
 
         // Show/hide sub-checkboxes based on checkbox status
-        document.getElementById('equipmentCheckbox').addEventListener('change', function () {
-            const equipmentSubCheckboxes = document.getElementById('equipmentSubCheckboxes');
-            equipmentSubCheckboxes.style.display = this.checked ? 'block' : 'none';
+        document.getElementById('switchboardCheckbox').addEventListener('change', function () {
+            const switchboardSubCheckboxes = document.getElementById('switchboardSubCheckboxes');
+            switchboardSubCheckboxes.style.display = this.checked ? 'block' : 'none';
+        });
+
+        document.getElementById('doorCheckbox').addEventListener('change', function () {
+            const doorSubCheckboxes = document.getElementById('doorSubCheckboxes');
+            doorSubCheckboxes.style.display = this.checked ? 'block' : 'none';
+        });
+
+        document.getElementById('chairCheckbox').addEventListener('change', function () {
+            const chairSubCheckboxes = document.getElementById('chairSubCheckboxes');
+            chairSubCheckboxes.style.display = this.checked ? 'block' : 'none';
+        });
+
+        document.getElementById('tableCheckbox').addEventListener('change', function () {
+            const tableSubCheckboxes = document.getElementById('tableSubCheckboxes');
+            tableSubCheckboxes.style.display = this.checked ? 'block' : 'none';
+        });
+
+        document.getElementById('bedCheckbox').addEventListener('change', function () {
+            const bedSubCheckboxes = document.getElementById('bedSubCheckboxes');
+            bedSubCheckboxes.style.display = this.checked ? 'block' : 'none';
+        });
+
+        document.getElementById('windowCheckbox').addEventListener('change', function () {
+            const windowSubCheckboxes = document.getElementById('windowSubCheckboxes');
+            windowSubCheckboxes.style.display = this.checked ? 'block' : 'none';
+        });
+
+        document.getElementById('mirrorCheckbox').addEventListener('change', function () {
+            const mirrorSubCheckboxes = document.getElementById('mirrorSubCheckboxes');
+            mirrorSubCheckboxes.style.display = this.checked ? 'block' : 'none';
+        });
+
+        document.getElementById('cleaningCheckbox').addEventListener('change', function () {
+            const cleaningSubCheckboxes = document.getElementById('cleaningSubCheckboxes');
+            cleaningSubCheckboxes.style.display = this.checked ? 'block' : 'none';
         });
     </script>
 </body>

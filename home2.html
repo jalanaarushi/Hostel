@@ -36,12 +36,11 @@
             margin: 0 15px;
         }
 
-        /* Full-height container */
         .container-table {
             display: flex;
             align-items: center;
             justify-content: center;
-            min-height: 100vh; /* Full viewport height */
+            min-height: 100vh;
             width: 100%;
             background-color: #f4f4f4;
             box-sizing: border-box;
@@ -72,11 +71,18 @@
 
         .checkbox-group {
             display: flex;
+            flex-direction: column;
             gap: 10px;
         }
 
         .checkbox-group label {
             font-weight: normal;
+        }
+
+        .sub-checkbox-group {
+            display: none;
+            margin-left: 20px;
+            gap: 5px;
         }
 
         textarea {
@@ -117,7 +123,9 @@
             <a href="choose.html">Room</a>
             <a href="home2.html">Washroom</a>
             <a href="mess.html">Mess</a>
-            <a href="swimming.html">Swimming pool</a>
+            <a href="swimming.html">Swimming Pool</a>
+            <a href="gym.html">Gymnasium</a>
+            <a href="Lift.html">Lift</a>
             <a href="index.html" class="logout">Logout</a>
         </nav>
     </div>
@@ -131,22 +139,49 @@
             <tr>
                 <td><label>Electricity</label></td>
                 <td class="checkbox-group">
-                    <label><input type="checkbox" name="electricity"> Exhaust not working</label>
-                    <label><input type="checkbox" name="electricity"> Tubelight not working</label>
+                    <label><input type="checkbox" id="exhaustCheckbox"> Exhaust not working</label>
+                    <div class="sub-checkbox-group" id="exhaustSubCheckboxes">
+                        <label><input type="checkbox" name="electricity"> Exhaust fan noise</label>
+                        <label><input type="checkbox" name="electricity"> Exhaust switch faulty</label>
+                    </div>
+                    <label><input type="checkbox" id="lightCheckbox"> Tubelight not working</label>
+                    <div class="sub-checkbox-group" id="lightSubCheckboxes">
+                        <label><input type="checkbox" name="electricity"> Tubelight flickering</label>
+                        <label><input type="checkbox" name="electricity"> Switch not working</label>
+                    </div>
                 </td>
             </tr>
 
             <tr>
                 <td><label>Maintenance</label></td>
                 <td class="checkbox-group">
-                    <label><input type="checkbox" name="maintenance"> Water clogging</label>
+                    <label><input type="checkbox" id="cloggingCheckbox"> Water clogging</label>
+                    <div class="sub-checkbox-group" id="cloggingSubCheckboxes">
+                        <label><input type="checkbox" name="maintenance"> Drain needs cleaning</label>
+                        <label><input type="checkbox" name="maintenance"> Slow drainage</label>
+                    </div>
+                    <label><input type="checkbox" id="cleaningCheckbox"> General cleanliness</label>
+                    <div class="sub-checkbox-group" id="cleaningSubCheckboxes">
+                        <label><input type="checkbox" name="maintenance"> Walls dirty</label>
+                        <label><input type="checkbox" name="maintenance"> Floor stains</label>
+                    </div>
                 </td>
             </tr>
 
             <tr>
                 <td><label>Plumber</label></td>
                 <td class="checkbox-group">
-                    <label><input type="checkbox" name="maintenance"> Water not coming in flush/pipes/taps</label>
+                    <label><input type="checkbox" id="waterCheckbox"> Water not coming in flush/pipes/taps</label>
+                    <div class="sub-checkbox-group" id="waterSubCheckboxes">
+                        <label><input type="checkbox" name="plumber"> Flush malfunctioning</label>
+                        <label><input type="checkbox" name="plumber"> Tap leakage</label>
+                        <label><input type="checkbox" name="plumber"> Pipe blockage</label>
+                    </div>
+                    <label><input type="checkbox" id="leakageCheckbox"> Leakages</label>
+                    <div class="sub-checkbox-group" id="leakageSubCheckboxes">
+                        <label><input type="checkbox" name="plumber"> Sink pipe leakage</label>
+                        <label><input type="checkbox" name="plumber"> Toilet pipe leakage</label>
+                    </div>
                 </td>
             </tr>
 
@@ -165,8 +200,22 @@
 
     <script>
         function goToNextPage() {
-            window.location.href = "Washroom-inspection.html"; // Change this to the actual name of your next page
+            window.location.href = "Washroom-inspection.html";
         }
+
+        // Show/hide sub-checkboxes based on main checkbox status
+        function toggleSubCheckboxes(mainCheckboxId, subCheckboxGroupId) {
+            const mainCheckbox = document.getElementById(mainCheckboxId);
+            const subCheckboxGroup = document.getElementById(subCheckboxGroupId);
+            subCheckboxGroup.style.display = mainCheckbox.checked ? 'flex' : 'none';
+        }
+
+        document.getElementById('exhaustCheckbox').addEventListener('change', () => toggleSubCheckboxes('exhaustCheckbox', 'exhaustSubCheckboxes'));
+        document.getElementById('lightCheckbox').addEventListener('change', () => toggleSubCheckboxes('lightCheckbox', 'lightSubCheckboxes'));
+        document.getElementById('cloggingCheckbox').addEventListener('change', () => toggleSubCheckboxes('cloggingCheckbox', 'cloggingSubCheckboxes'));
+        document.getElementById('cleaningCheckbox').addEventListener('change', () => toggleSubCheckboxes('cleaningCheckbox', 'cleaningSubCheckboxes'));
+        document.getElementById('waterCheckbox').addEventListener('change', () => toggleSubCheckboxes('waterCheckbox', 'waterSubCheckboxes'));
+        document.getElementById('leakageCheckbox').addEventListener('change', () => toggleSubCheckboxes('leakageCheckbox', 'leakageSubCheckboxes'));
     </script>
 </body>
 </html>
